@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 
 export default function AIvsAI() {
     const [board, setBoard] = useState<BoardState>(initBoard());
-    const [AI1, setAI1] = useState<Player>(initAI('black'));
-    const [AI2, setAI2] = useState<Player>(initAI('white'));
+    const [AI1, setAI1] = useState<Player>('black'); // Player型が文字列リテラル型
+    const [AI2, setAI2] = useState<Player>('white'); // Player型が文字列リテラル型
     const [winner, setWinner] = useState<Winner>(null);
     const [currentPlayer, setCurrentPlayer] = useState<'AI1' | 'AI2'>('AI1');
     const [gameStatus, setGameStatus] = useState<'ready' | 'playing' | 'paused' | 'finished'>('ready');
@@ -49,7 +49,10 @@ export default function AIvsAI() {
             } else {
                 const movesWithCounts = canPutAI.map(move => {
                     const newBoard = makeBoard(board, move % 8, Math.floor(move / 8), AI);
-                    return { move, count: newBoard ? countPiece(newBoard)[AI.color === 'black' ? 'countBlack' : 'countWhite'] : 0 };
+                    return {
+                        move,
+                        count: newBoard ? countPiece(newBoard)[AI === 'black' ? 'countBlack' : 'countWhite'] : 0
+                    };
                 });
                 const maxCount = Math.max(...movesWithCounts.map(m => m.count));
                 const bestMoves = movesWithCounts.filter(m => m.count === maxCount).map(m => m.move);
@@ -76,8 +79,8 @@ export default function AIvsAI() {
 
     const startGame = () => {
         setBoard(initBoard());
-        setAI1(initAI('black'));
-        setAI2(initAI('white'));
+        setAI1('black'); // プレイヤーは文字列リテラル型
+        setAI2('white'); // プレイヤーは文字列リテラル型
         setWinner(null);
         setCurrentPlayer('AI1');
         setGameStatus('playing');

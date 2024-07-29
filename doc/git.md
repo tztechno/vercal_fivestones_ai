@@ -1,6 +1,6 @@
 ```
 
-cd fivestones
+cd othello_v2
 
 package.jsonを修正
 npm install
@@ -15,7 +15,7 @@ git add .
 git commit -m “2024-07-29”
 git push -u origin master
 
-cd fivestones
+cd othello_v2
 npm run dev
 
 http://localhost:3000
