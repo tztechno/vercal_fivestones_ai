@@ -11,6 +11,8 @@ https://github.com/tztechno/vercel_othello_v2.git
 git init
 git remote add origin https://github.com/tztechno/vercel_othello_v2
 git pull
+
+cd othello_v2
 git add .
 git commit -m “2024-07-29”
 git push -u origin master

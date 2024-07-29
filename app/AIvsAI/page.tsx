@@ -95,7 +95,7 @@ export default function AIvsAI() {
 
     return (
         <div className='flex flex-col items-center'>
-            <h2 className='font-bold' style={{ fontSize: `25px` }}>AI vs AI</h2>
+            <h2 className='font-bold' style={{ fontSize: `25px` }}>AI1 vs AI2</h2>
             <Board board={board} onCellClick={() => { }} />
             {!winner && <p>{currentPlayer}のターン</p>}
             {!winner && <p>黒：{countPiece(board).countBlack}　　白：{countPiece(board).countWhite}</p>}
